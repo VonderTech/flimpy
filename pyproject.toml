@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "flimpy"
+version = "0.1.0"
+description = "Object detection for videos"
+authors = ["André Gröschel <andre@vondertech.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+torch = {version = "^2.3.1+cu118", source = "pytorch-gpu"}
+torchvision = {version = "^0.18.1+cu118", source = "pytorch-gpu"}
+torchaudio = {version = "^2.3.1+cu118", source = "pytorch-gpu"}
+gradio = "^4.37.1"
+transformers = "^4.41.2"
+pillow = "^10.3.0"
+opencv-python = "^4.10.0.84"
+numpy = "1.26.4"
+
+
+[[tool.poetry.source]]
+name = "pytorch-gpu"
+url = "https://download.pytorch.org/whl/cu118"
+priority = "explicit"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
