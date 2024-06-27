@@ -1,8 +1,7 @@
 import cv2
-import torch
 import numpy
+from PIL import Image, ImageDraw
 from transformers import YolosForObjectDetection
-from PIL import Image, ImageDraw, ImageFont
 
 # Load the YOLOv8 model
 model = YolosForObjectDetection.from_pretrained("hustvl/yolos-tiny")
@@ -11,7 +10,8 @@ model.eval()
 
 def process_video(video_path):
     """
-    Process the uploaded video, detect objects and return the video with detected objects highlighted.
+    Process the uploaded video, detect objects and return the video with detected
+    objects highlighted.
     """
     cap = cv2.VideoCapture(video_path)
     # Define the codec and create VideoWriter object

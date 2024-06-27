@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "ms-python.python", // Python extension by Microsoft
+        "ms-python.black-formatter", // Black formatter extension
+        "ms-python.flake8",
+        "ms-python.vscode-pylance", // Pylance extension for better IntelliSense and type checking
+        "ms-python.debugpy" // Python Debugger extension     // Flake8 extension
+    ]
+}

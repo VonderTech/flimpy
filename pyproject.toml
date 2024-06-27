@@ -18,6 +18,9 @@ opencv-python = "^4.10.0.84"
 numpy = "1.26.4"
 
 
+[tool.poetry.dev-dependencies]
+flake8 = "^7.1.0"
+
 [[tool.poetry.source]]
 name = "pytorch-gpu"
 url = "https://download.pytorch.org/whl/cu118"
