@@ -1,6 +1,6 @@
 import torch
-from transformers import AutoImageProcessor, AutoModelForObjectDetection
 from PIL import Image, ImageDraw, ImageFont
+from transformers import AutoImageProcessor, AutoModelForObjectDetection
 
 # Load the model and the feature extractor
 image_processor = AutoImageProcessor.from_pretrained("hustvl/yolos-tiny")
@@ -9,7 +9,8 @@ model = AutoModelForObjectDetection.from_pretrained("hustvl/yolos-tiny")
 
 def process_image(image_path):
     """
-    Process the image, detect objects and return the it with detected objects highlighted.
+    Process the image, detect objects and return the it with detected objects
+    highlighted.
     """
     image = Image.open(image_path)
     # Preprocess image and prepare for the model
@@ -50,14 +51,3 @@ def process_image(image_path):
     )
 
     return image, detected_objects
-
-    # Print results
-    # print("Detected objects:")
-    # for score, label, box in zip(
-    #     results["scores"], results["labels"], results["boxes"]
-    # ):
-    #     box = [round(i, 2) for i in box.tolist()]
-    #     print(
-    #         f"Detected {model.config.id2label[label.item()]} with confidence "
-    #         f"{round(score.item(), 3)} at location {box}"
-    #     )

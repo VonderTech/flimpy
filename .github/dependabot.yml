@@ -1,16 +1,13 @@
 version: 2
 updates:
-  - package-ecosystem: 'npm'
-    directory: '/'
+  - package-ecosystem: "pip"
+    directory: "/"
     schedule:
-      interval: 'weekly'
-    open-pull-requests-limit: 5
+      interval: "weekly"
+    ignore:
+      - dependency-name: "example-package"  # Add any dependencies you want to ignore
     commit-message:
-      prefix: 'chore(deps)'
-      include: scope
-    labels:
-      - 'dependencies'
-    reviewers:
-      - 'AndreGroeschel'
-    assignees:
-      - 'AndreGroeschel'
+      prefix: "deps"
+      include: "scope"
+    target-branch: "main"  # Adjust as necessary
+    open-pull-requests-limit: 5
