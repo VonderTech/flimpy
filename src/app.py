@@ -1,7 +1,8 @@
 import gradio as gr
 
 # from media_processing import process_media
-from image_processing import process_image
+# from image_processing import process_image
+from media_processing import process_media
 
 # # Define the Gradio interface
 # interface = gr.Interface(
@@ -29,18 +30,30 @@ def upload_file(filepath):
 
 
 with gr.Blocks() as demo:
-    file_input = gr.Image(type="filepath")
-    process_button = gr.Button("Process File")
-    output_image = gr.Image(type="pil", label="Processed Image", height=300, width=400)
-    output_text = gr.Textbox(label="Detected Objects")
+    with gr.Tab("Image"):
+        image_input = gr.Image(type="filepath", label="Upload an Image")
+        process_image_button = gr.Button("Process Image")
+        output_image = gr.Image(
+            type="filepath", label="Processed Image", height=300, width=400
+        )
+        output_image_text = gr.Textbox(label="Detected Objects in Image")
 
-    process_button.click(
-        process_image, inputs=[file_input], outputs=[output_image, output_text]
-    )
-    # file_output = gr.File()
-    # upload_button = gr.UploadButton(
-    #     "Click to Upload a File", file_types=["image", "video"], file_count="multiple"
-    # )
-    # upload_button.upload(upload_file, upload_button, file_output)
+        process_image_button.click(
+            process_media,
+            inputs=[image_input],
+            outputs=[output_image, output_image_text],
+        )
+
+    with gr.Tab("Video"):
+        video_input = gr.Video(label="Upload a Video")
+        process_video_button = gr.Button("Process Video")
+        output_video = gr.Video(label="Processed Video", height=300, width=400)
+        output_video_text = gr.Textbox(label="Detected Objects in Video")
+
+        process_video_button.click(
+            process_media,
+            inputs=[video_input],
+            outputs=[output_video, output_video_text],
+        )
 
 demo.launch()
