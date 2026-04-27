@@ -21,7 +21,7 @@ ultralytics = "^8.2.45"
 
 
 [tool.poetry.dev-dependencies]
-flake8 = "^7.1.0"
+flake8 = "^7.3.0"
 
 [[tool.poetry.source]]
 name = "pytorch-gpu"
